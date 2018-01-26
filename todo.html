@@ -17,6 +17,15 @@
           input = "廢文一篇";
         }
         span.innerHTML = input;
+
+        // radio
+        if(document.getElementById("radio1").checked) {
+          span.style.color = "red";
+        }
+        else {
+          span.style.color = "green";
+        }
+
         todo.appendChild(span);
 
         // 設定 replaceButton onclick 事件
@@ -51,12 +60,14 @@
         removeButton.textContent = "V";
         todo.appendChild(removeButton);
 
+
         // 把 To-Do 加入 todolist
         // var todolist = document.createElement("todolist");
         document.getElementById("todolist").appendChild(todo);
 
         // 清空輸入欄位
         document.getElementById("input").value = "";
+
       }
 
     </script>
@@ -64,6 +75,14 @@
   <body>
     <input type="text" id="input">
     <button onclick="createToDo()">+</button>
+    <form action="">
+      <label>
+        <input type="radio" name="emergency" id="radio1" checked>緊急
+      </label>
+      <label>
+        <input type="radio" name="emergency">不緊急
+      </label>
+    </form>
     <div id="todolist"></div>
   </body>
 </html>
