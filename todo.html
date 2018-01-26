@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>操作 HTML 元素 - (2) 實作：To-Do List</title>
+    <title>To-Do List</title>
     <script>
       "use strict"
 
@@ -39,7 +39,10 @@
 
         // 完成 removeButton 按鈕
         removeButton.onclick = function() {
-          this.parentNode.parentNode.removeChild(this.parentNode);
+          var r = confirm("是否確定刪除？");
+          if(r == true) {
+            this.parentNode.parentNode.removeChild(this.parentNode);
+          }
         }
         removeButton.textContent = "V";
         todo.appendChild(removeButton);
