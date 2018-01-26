@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>操作 HTML 元素 - (1) Add, Delete, Replace</title>
+    <!-- CSS 風格並不包含在教學裡 -->
+    <style>
+      .box{
+        margin:0px auto;
+        padding-left: 40px; 
+        border:2px solid #ccc;
+        border-radius: 15px; 
+        width:640px;
+      }
+    </style>
+
+    <script>
+      "use strict"
+
+      // 在 container 裡新增 element，新增的內容是「一篇廢文」
+      function addText() {
+        var container = document.getElementById("container");
+        var div = document.createElement("div");
+        div.innerHTML = "一篇廢文";
+        
+        container.appendChild(div);
+      }
+
+      // 刪除 container 裡最後一個 childNode
+      function delText() {
+        var container = document.getElementById("container");
+        var child = container.lastChild;
+        if (child) {
+          container.removeChild(child);
+        }
+      }
+
+      // 把 container 用一個新創建的 container 取代
+      function replaceDiv() {
+        var newContainer = document.createElement("div");
+        newContainer.innerHTML = "取代原本的 div container!";
+        var container = document.getElementById("container");
+        newContainer.id = container.id;
+        newContainer.className = container.className;
+        container.parentNode.replaceChild(newContainer, container);
+      }
+    </script>
+  </head>
+  <body>
+    <div style="margin:0px auto;padding-left: 40px; width:720px">
+      <button class="button button" onclick="addText()">新增一篇廢文</button>
+      <button class="button button2" onclick="delText()">刪除一篇廢文</button>
+      <button class="button button3" onclick="replaceDiv()">取代整個div</button>
+    </div>
+    <br>
+    <div id="container" class="box"></div>
+  </body>
+</html>

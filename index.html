@@ -1,0 +1,44 @@
+<html>
+<head>
+  <script>
+    var state = true;
+    function toggleLight() {
+      var image = document.getElementById("image");
+      state = !state
+      image.src = state ? "img/on.jpg" : "img/off.jpg"
+    }
+
+
+    var timeLeft = 0;
+    var id;
+    function setTime() {
+      var time = document.getElementById("time").value;
+      if ( isNaN(time) ) {
+        alert("請輸入數字");
+      }
+      else {
+        timeLeft = time;
+        id = setInterval(countDownTimer, 1000);
+      }
+    }
+
+    function countDownTimer() {
+      timeLeft = timeLeft - 1;
+      if ( timeLeft <= 0) {
+        document.getElementById("image").src = "img/off.jpg"
+        clearInterval(id);
+      }
+      document.getElementById("timer").innerHTML = timeLeft;
+    }
+    
+  </script>
+</head>
+<body>
+  <!-- HTML 語法寫在這 -->
+  <img id="image" src="img/on.jpg">
+  <input type="text" id="time">
+  <button class="button" onclick="setTime()">set countdown time</button>
+  <button class="button" onclick="toggleLight()">ON<br>-</br>OFF</button>
+  <div class="div" id="timer">time</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<script>
+  function alertYou() {
+    alert("A button is clicked !");
+  }
+</script>
+<button onclick="alertYou()"> Click me </button>
+
+<script>
+  function alertYou() {
+    alert("A Key is Press!");
+  }
+  document.onkeyup = function(event) {
+    var key = String.fromCharCode(event.keyCode);
+    if (key == "A") {
+      alertYou();
+    } 
+  }
+</script>

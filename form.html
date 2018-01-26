@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>事件驅動 - (3) 實作：表單驗證</title>
+    <script>
+      "use strict"
+      function validate() {
+        var code = document.getElementById("ic").value;
+        if (code == "") {
+          alert("內容是空的，發出警告!");
+        } else if (!isNaN(code)) {
+          alert("內容不能是數字，發出警告!");
+        } else if (code.length != 10) {
+          alert("內容的長度不正確，發出警告!");
+        } else {
+          document.getElementById("result").innerHTML = "通過驗證";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="ic">
+      <input type="button" value="驗證" onclick="validate()">
+      <p id="result"></p>
+    </form>
+  </body>
+</html>
