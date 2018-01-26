@@ -39,9 +39,13 @@
 
         // 完成 removeButton 按鈕
         removeButton.onclick = function() {
+          // https://www.w3schools.com/jsref/met_win_confirm.asp
           var r = confirm("是否確定刪除？");
           if(r == true) {
-            this.parentNode.parentNode.removeChild(this.parentNode);
+            // this.parentNode.parentNode.removeChild(this.parentNode);
+            this.parentNode.style.color = "red";
+            this.parentNode.removeChild(replaceButton);
+            this.parentNode.removeChild(this);
           }
         }
         removeButton.textContent = "V";
