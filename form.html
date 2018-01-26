@@ -13,6 +13,14 @@
           alert("內容的長度不正確，發出警告!");
         } else {
           document.getElementById("result").innerHTML = "通過驗證";
+          // https://www.w3schools.com/jsref/jsref_charat.asp
+          // cosole.log(typeof(code));
+          if( code.charAt(1) == 1 ) {
+            document.getElementById("gender").innerHTML = "male";
+          }
+          else if( code.charAt(1) == 2) {
+            document.getElementById("gender").innerHTML = "female";
+          }
         }
       }
     </script>
@@ -22,6 +30,7 @@
       <input type="text" id="ic">
       <input type="button" value="驗證" onclick="validate()">
       <p id="result"></p>
+      <p id="gender"></p>
     </form>
   </body>
 </html>
